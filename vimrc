@@ -30,6 +30,9 @@ Plugin 'preservim/nerdtree'
 " Install Vim-go
 Plugin 'fatih/vim-go'
 
+" statusline 
+Plugin 'vim-airline/vim-airline'
+
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,7 +67,7 @@ call vundle#end()            " required
         endif
     endif
 
-    "set mouse=a
+    set mouse=a
 
     " 打开上次位置
     au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -99,26 +102,26 @@ call vundle#end()            " required
     "highlight clear SignColumn      " SignColumn should match background
     "highlight clear LineNr          " Current line number row will have same background color in relative mode
 
-    if has('cmdline_info')
-        set ruler                   " Show the ruler
-        set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
-        set showcmd                 " Show partial commands in status line and
-                                    " Selected characters/lines in visual mode
-    endif
+    "if has('cmdline_info')
+    "    set ruler                   " Show the ruler
+    "    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
+    "    set showcmd                 " Show partial commands in status line and
+    "                                " Selected characters/lines in visual mode
+    "endif
 
-    if has('statusline')
-        set laststatus=2
+    "if has('statusline')
+    "    set laststatus=2
 
-        " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        "if !exists('g:override_spf13_bundles')
-        "    set statusline+=%{fugitive#statusline()} " Git Hotness
-        "endif
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    endif
+    "    " Broken down into easily includeable segments
+    "    set statusline=%<%f\                     " Filename
+    "    set statusline+=%w%h%m%r                 " Options
+    "    "if !exists('g:override_spf13_bundles')
+    "    "    set statusline+=%{fugitive#statusline()} " Git Hotness
+    "    "endif
+    "    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    "    set statusline+=\ [%{getcwd()}]          " Current dir
+    "    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    "endif
 
     "filetype on
     "filetype indent on
@@ -132,7 +135,7 @@ call vundle#end()            " required
     set hlsearch                    " Highlight search terms
     "set winminheight=0              " Windows can be 0 line high
     "set ignorecase                  " Case insensitive search
-    "set smartcase                   " Case sensitive when uc present
+    set smartcase                   " Case sensitive when uc present
     "set wildmenu                    " Show list instead of just completing
     "set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
@@ -161,7 +164,6 @@ call vundle#end()            " required
     nnoremap <C-K> <C-W><C-K>
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
-
 
     " Disable highlight when <leader><cr> is pressed
     map <silent> <leader><cr> :noh<cr>
@@ -193,7 +195,6 @@ call vundle#end()            " required
     nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
     au TabLeave * let g:lasttab = tabpagenr()
 
-
     " Opens a new tab with the current buffer's path
     " Super useful when editing files in the same directory
     map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
@@ -201,12 +202,12 @@ call vundle#end()            " required
     " Switch CWD to the directory of the open buffer
     map <leader>cd :cd %:p:h<cr>:pwd<cr>
 
-    " Specify the behavior when switching between buffers
-    try
-      set switchbuf=useopen,usetab,newtab
-      set stal=2
-    catch
-    endtry
+    "" Specify the behavior when switching between buffers
+    "try
+    "  set switchbuf=useopen,usetab,newtab
+    "  set stal=2
+    "catch
+    "endtry
 
     " Return to last edit position when opening files (You want this!)
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
