@@ -33,6 +33,9 @@ Plugin 'fatih/vim-go'
 " statusline 
 Plugin 'vim-airline/vim-airline'
 
+" syntax checking
+Plugin 'scrooloose/syntastic'
+
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,6 +61,9 @@ call vundle#end()            " required
     au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
     " Don't write backup file if vim is being called by "chpass"
     au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+    " 让配置变更立即生效
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
     if has('clipboard')
         if has('unnamedplus')  " When possible use + register for copy-paste
@@ -129,7 +135,7 @@ call vundle#end()            " required
     set backspace=indent,eol,start  " Backspace for dummies
     "set linespace=0                 " No extra spaces between rows
     "set number                      " Line numbers on
-    "set relativenumber             "
+    set relativenumber             "
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
     set hlsearch                    " Highlight search terms
@@ -261,7 +267,7 @@ call vundle#end()            " required
         let g:ycm_show_diagnostics_ui = 0
 
         " use the Homebrew llvm's clangd
-        let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
+        "let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 
         let g:ycm_autoclose_preview_window_after_completion=1
         let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
@@ -270,5 +276,20 @@ call vundle#end()            " required
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
+     " }
+     " syntastic {
+     
+        let g:syntastic_cpp_compiler = 'clang++'
+        let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+        set statusline+=%#warningmsg#
+        set statusline+=%{SyntasticStatuslineFlag()}
+        "set statusline+=%*
+
+        let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 1
+        let g:syntastic_check_on_open = 1
+        let g:syntastic_check_on_wq = 0
+
      " }
 " }
