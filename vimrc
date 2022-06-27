@@ -266,6 +266,11 @@ call vundle#end()            " required
         " ycm 忽略头文件找不到错误
         let g:ycm_show_diagnostics_ui = 0
 
+        let g:ycm_collect_identifiers_from_tags_files = 1
+
+        let g:syntastic_cpp_compiler = 'clang++'
+        let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
         " use the Homebrew llvm's clangd
         "let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 
@@ -279,17 +284,21 @@ call vundle#end()            " required
      " }
      " syntastic {
      
-        let g:syntastic_cpp_compiler = 'clang++'
-        let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+        "let g:syntastic_cpp_compiler = 'clang++'
+        "let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}
-        "set statusline+=%*
+        "set statusline+=%#warningmsg#
+        "set statusline+=%{SyntasticStatuslineFlag()}
+        ""set statusline+=%*
 
-        let g:syntastic_always_populate_loc_list = 1
-        let g:syntastic_auto_loc_list = 1
-        let g:syntastic_check_on_open = 1
-        let g:syntastic_check_on_wq = 0
+        "let g:syntastic_always_populate_loc_list = 1
+        "let g:syntastic_auto_loc_list = 1
+        "let g:syntastic_check_on_open = 1
+        "let g:syntastic_check_on_wq = 0
+
+        "" 检查头文件位置
+        ""let g:syntastic_c_config_file = '.syntastic_c_config'
+        ""let g:syntastic_cpp_config_file = '.syntastic_c_config'
 
      " }
 " }
