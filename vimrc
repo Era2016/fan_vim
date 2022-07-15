@@ -36,6 +36,12 @@ Plugin 'vim-airline/vim-airline'
 " syntax checking
 Plugin 'scrooloose/syntastic'
 
+" file/buffer/mru finder for vim 
+"Plugin 'ctrlpvim/ctrlp.vim'
+
+"colorscheme
+Plugin 'yuttie/hydrangea-vim'
+
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,7 +61,8 @@ call vundle#end()            " required
 
     set background=dark
     "colorscheme darkblue
-    colorscheme delek
+    "colorscheme delek
+    colorscheme hydrangea
 
     " Don't write backup file if vim is being called by "crontab -e"
     au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
@@ -73,7 +80,7 @@ call vundle#end()            " required
         endif
     endif
 
-    set mouse=a
+    "set mouse=a
 
     " 打开上次位置
     au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -134,7 +141,7 @@ call vundle#end()            " required
 
     set backspace=indent,eol,start  " Backspace for dummies
     "set linespace=0                 " No extra spaces between rows
-    "set number                      " Line numbers on
+    set number                      " Line numbers on
     set relativenumber             "
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
@@ -226,7 +233,7 @@ call vundle#end()            " required
     " GoLang {
         filetype plugin on
         let g:go_disable_autoinstall = 0
-        let g:go_highlight_functions = 1
+
         let g:go_highlight_methods = 1
         let g:go_highlight_structs = 1
         let g:go_highlight_operators = 1
