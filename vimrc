@@ -39,8 +39,11 @@ Plugin 'scrooloose/syntastic'
 " file/buffer/mru finder for vim 
 "Plugin 'ctrlpvim/ctrlp.vim'
 
-"colorscheme
+" colorscheme
 Plugin 'yuttie/hydrangea-vim'
+
+" colorscheme
+Plugin 'arzg/vim-colors-xcode'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
@@ -62,7 +65,9 @@ call vundle#end()            " required
     set background=dark
     "colorscheme darkblue
     "colorscheme delek
-    colorscheme hydrangea
+    "colorscheme hydrangea
+    "colorscheme xcodedark
+    colorscheme xcodewwdc 
 
     " Don't write backup file if vim is being called by "crontab -e"
     au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
