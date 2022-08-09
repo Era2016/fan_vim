@@ -293,6 +293,13 @@ call vundle#end()            " required
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
+
+        nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+        nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+        nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+        nmap <F4> :YcmDiags<CR>
+        " Ctrl+O 前跳
+        " Ctrl+I 后跳
      " }
      " syntastic {
      
