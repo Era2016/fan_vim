@@ -227,9 +227,6 @@ call vundle#end()            " required
     "catch
     "endtry
 
-    " Return to last edit position when opening files (You want this!)
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
     nmap <F5> :NERDTreeToggle<cr>
     nmap <F8> :TagbarToggle<CR>
 " }
@@ -293,13 +290,12 @@ call vundle#end()            " required
         " When enabled, there can be too much visual noise
         " especially when splits are used.
         set completeopt-=preview
+        let g:ycm_add_preview_to_completeopt = 0
 
         nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
         nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
         nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
         nmap <F4> :YcmDiags<CR>
-        " Ctrl+O 前跳
-        " Ctrl+I 后跳
      " }
      " syntastic {
      
