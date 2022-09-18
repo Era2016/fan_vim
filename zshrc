@@ -131,7 +131,7 @@ alias op='/Users/fan/Workspace/go_workspace/src/git.joyme.sg/liveme_infra/tools'
 export GOPATH="/Users/fan/Workspace/go_workspace"
 export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 export LC_ALL=en_US.UTF-8
-export HOMEBREW_GITHUB_API_TOKEN=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
+export HOMEBREW_GITHUB_API_TOKEN=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
 
 ctags=/usr/local/bin/ctags
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
