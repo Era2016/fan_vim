@@ -31,19 +31,19 @@ Plugin 'preservim/nerdtree'
 Plugin 'fatih/vim-go'
 
 " statusline 
-Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline'
 
 " syntax checking
 Plugin 'scrooloose/syntastic'
 
 " file/buffer/mru finder for vim 
-"Plugin 'ctrlpvim/ctrlp.vim'
-
-" colorscheme
-Plugin 'yuttie/hydrangea-vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " colorscheme
 Plugin 'arzg/vim-colors-xcode'
+
+" colorscheme
+Plugin 'altercation/vim-colors-solarized' 
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 " All of your Plugins must be added before the following line
@@ -67,7 +67,9 @@ call vundle#end()            " required
     "colorscheme delek
     "colorscheme hydrangea
     "colorscheme xcodedark
-    colorscheme xcodewwdc 
+
+    "colorscheme xcodewwdc " breeze iterm 
+    colorscheme solarized
 
     " Don't write backup file if vim is being called by "crontab -e"
     au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
@@ -127,19 +129,19 @@ call vundle#end()            " required
     "                                " Selected characters/lines in visual mode
     "endif
 
-    "if has('statusline')
-    "    set laststatus=2
+    if has('statusline')
+        set laststatus=2
 
-    "    " Broken down into easily includeable segments
-    "    set statusline=%<%f\                     " Filename
-    "    set statusline+=%w%h%m%r                 " Options
-    "    "if !exists('g:override_spf13_bundles')
-    "    "    set statusline+=%{fugitive#statusline()} " Git Hotness
-    "    "endif
-    "    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    "    set statusline+=\ [%{getcwd()}]          " Current dir
-    "    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-    "endif
+        " Broken down into easily includeable segments
+        set statusline=%<%f\                     " Filename
+        set statusline+=%w%h%m%r                 " Options
+        "if !exists('g:override_spf13_bundles')
+        "    set statusline+=%{fugitive#statusline()} " Git Hotness
+        "endif
+        set statusline+=\ [%{&ff}/%Y]            " Filetype
+        set statusline+=\ [%{getcwd()}]          " Current dir
+        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    endif
 
     "filetype on
     "filetype indent on
