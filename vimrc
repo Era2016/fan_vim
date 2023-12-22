@@ -87,7 +87,7 @@ call vundle#end()            " required
         endif
     endif
 
-    "set mouse=a
+    set mouse=a
 
     " 打开上次位置
     au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -141,6 +141,7 @@ call vundle#end()            " required
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+
     endif
 
     "filetype on
@@ -278,6 +279,14 @@ call vundle#end()            " required
      " YouCompleteMe {
         " ycm 忽略头文件找不到错误
         let g:ycm_show_diagnostics_ui = 0
+
+        """""""
+        " official recommands
+        " Let clangd fully control code completion
+        let g:ycm_clangd_uses_ycmd_caching = 0
+        " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+        let g:ycm_clangd_binary_path = exepath("clangd")
+        """""""
 
         let g:ycm_collect_identifiers_from_tags_files = 1
 
